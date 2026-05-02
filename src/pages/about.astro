@@ -1,0 +1,126 @@
+---
+import Layout from "../components/Layout.astro";
+import CTASection from "../components/CTASection.astro";
+---
+
+<Layout
+  title="About"
+  description="AP Dev Pro — Independent software engineering and cloud consulting by a hands-on engineer. Practical, experienced, trustworthy. AWS, serverless, TypeScript, Python, AI."
+  ogUrl="https://apcloud.pro/about"
+>
+  <section class="pb-16 pt-24 sm:pb-20 sm:pt-32">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-wider text-electric-400">About</p>
+        <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-100 sm:text-5xl text-balance">
+          Hands-on engineering,<br />no unnecessary complexity
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 sm:pb-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-5">
+        <!-- Sidebar -->
+        <aside class="lg:col-span-2">
+          <div class="sticky top-28 space-y-6">
+            <div class="rounded-xl border border-slate-800 bg-navy-900 p-5">
+              <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Focus Areas</h3>
+              <ul class="mt-4 space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded bg-electric-500/10 text-xs text-electric-400">⚡</span>
+                  <span class="text-sm text-slate-300">AWS Serverless Architecture</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded bg-cyan-500/10 text-xs text-cyan-400">🖥️</span>
+                  <span class="text-sm text-slate-300">Full-Stack Development</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded bg-violet-500/10 text-xs text-violet-400">🔄</span>
+                  <span class="text-sm text-slate-300">Cloud Automation & DevOps</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded bg-emerald-500/10 text-xs text-emerald-400">🤖</span>
+                  <span class="text-sm text-slate-300">AI & Agentic Workflows</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="rounded-xl border border-slate-800 bg-navy-900 p-5">
+              <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Tech I Work With</h3>
+              <div class="mt-4 flex flex-wrap gap-2">
+                {[
+                  "AWS", "Lambda", "DynamoDB", "API Gateway", "AppSync",
+                  "TypeScript", "Python", "React", "Node.js", ".NET",
+                  "SQL Server", "PostgreSQL", "CDK", "Terraform", "Docker",
+                  "GitHub Actions", "CloudFront", "S3", "Cognito", "Step Functions",
+                ].map((tech) => (
+                  <span class="rounded-full border border-slate-700 bg-navy-900 px-2.5 py-1 text-xs text-slate-400">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Bio -->
+        <div class="lg:col-span-3 space-y-6 text-slate-300 leading-relaxed">
+          <p class="text-lg">
+            I'm a software engineer and cloud consultant who helps businesses move quickly without overengineering. I've spent years building production systems across the stack — from .NET and SQL Server backends to serverless TypeScript and Python services on AWS.
+          </p>
+
+          <p>
+            What sets me apart isn't a particular technology. It's the ability to look at a business problem, cut through the noise, and build exactly what's needed — nothing more, nothing less. I don't push technology for its own sake. I push for solutions that work, that are maintainable, and that make sense for the team that will own them.
+          </p>
+
+          <div class="rounded-xl border border-slate-800 bg-navy-900 p-6">
+            <h2 class="text-lg font-bold text-slate-100">Why work with me</h2>
+            <div class="mt-5 grid gap-4 sm:grid-cols-2">
+              <div>
+                <h3 class="text-sm font-semibold text-electric-400">Direct Access</h3>
+                <p class="mt-1 text-sm text-slate-400">
+                  You work directly with the person building your system. No account managers, no junior developers learning on your dime.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-electric-400">Pragmatic Approach</h3>
+                <p class="mt-1 text-sm text-slate-400">
+                  I choose the right tool for the job, not the trendy one. Serverless when it fits, containers when they're needed, monoliths when they make sense.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-electric-400">Knowledge Transfer</h3>
+                <p class="mt-1 text-sm text-slate-400">
+                  I document, explain, and walk your team through everything I build. The goal is for you to own your systems confidently.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-electric-400">Speed & Quality</h3>
+                <p class="mt-1 text-sm text-slate-400">
+                  Modern tooling — including AI-assisted development — lets me deliver high-quality work faster than traditional consulting shops.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            I work with startups shipping their first product, established businesses modernizing legacy systems, and technical teams that need an experienced pair of hands for a critical project. Every engagement starts with a conversation — no commitments, no pressure, just a honest discussion about what you're trying to achieve.
+          </p>
+
+          <p class="text-slate-400">
+            Based in the United States. Available for remote engagements worldwide.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Let's work together"
+    description="Reach out to discuss your project, your challenges, or just to say hello. I respond to every message personally."
+    ctaLabel="Get in Touch"
+    ctaHref="/contact"
+  />
+</Layout>

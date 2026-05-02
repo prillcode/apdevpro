@@ -1,0 +1,64 @@
+---
+export interface Props {
+  headline?: string;
+  subheadline?: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  showBadges?: boolean;
+}
+
+const {
+  headline = "Modern software, serverless systems, and AI-powered automation.",
+  subheadline = "I help businesses build reliable cloud-native applications, automate workflows, and adopt practical AI development patterns — without the overhead of a large agency.",
+  primaryCta = { label: "Start a Project", href: "/contact" },
+  secondaryCta = { label: "View Services", href: "/services" },
+  showBadges = true,
+} = Astro.props;
+
+const skillBadges = [
+  "AWS", "Serverless", "TypeScript", "Python",
+  "DynamoDB", "API Gateway", "AppSync", "AI Agents", "DevOps",
+];
+---
+
+<section class="pb-16 pt-24 sm:pb-20 sm:pt-32 lg:pb-28 lg:pt-40">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-slate-100 sm:text-5xl lg:text-6xl text-balance">
+        <span class="bg-gradient-to-r from-electric-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">{headline}</span>
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-400 text-balance sm:text-xl">
+        {subheadline}
+      </p>
+
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href={primaryCta.href}
+          class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-electric-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:from-electric-400 hover:to-violet-400 hover:shadow-lg hover:shadow-electric-500/20"
+        >
+          {primaryCta.label}
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+        <a
+          href={secondaryCta.href}
+          class="inline-flex items-center gap-2 rounded-lg border border-slate-700 px-6 py-3 text-sm font-medium text-slate-300 transition-all duration-200 hover:border-slate-500 hover:text-slate-200"
+        >
+          {secondaryCta.label}
+        </a>
+      </div>
+
+      {showBadges && (
+        <div class="mt-14 flex flex-wrap items-center justify-center gap-2">
+          {skillBadges.map((badge) => (
+            <span class="rounded-full border border-slate-800 bg-navy-900 px-3 py-1 text-xs font-medium text-slate-400">
+              {badge}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

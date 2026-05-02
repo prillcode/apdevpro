@@ -1,0 +1,39 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const {
+  title,
+  description,
+  ctaLabel = "Start a Project",
+  ctaHref = "/contact",
+} = Astro.props;
+---
+
+<section class="border-t border-slate-800 bg-navy-900/30">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 sm:py-20">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-2xl font-bold tracking-tight text-slate-100 sm:text-3xl text-balance">
+        {title}
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-400 text-balance">
+        {description}
+      </p>
+      <div class="mt-8">
+        <a
+          href={ctaHref}
+          class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-electric-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:from-electric-400 hover:to-violet-400 hover:shadow-lg hover:shadow-electric-500/20"
+        >
+          {ctaLabel}
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

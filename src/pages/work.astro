@@ -1,0 +1,71 @@
+---
+import Layout from "../components/Layout.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+import CTASection from "../components/CTASection.astro";
+
+const caseStudies = [
+  {
+    title: "Serverless Web Application Architecture",
+    description: "A growing SaaS startup needed to replace their monolithic backend with a scalable, cost-efficient serverless architecture serving 50k+ daily users.",
+    approach: "Designed a fully serverless stack using API Gateway, Lambda, DynamoDB with single-table design, and CloudFront for edge delivery. Implemented infrastructure as code with AWS CDK and automated CI/CD pipelines with canary deployments.",
+    technologies: ["AWS Lambda", "API Gateway", "DynamoDB", "CloudFront", "AWS CDK", "TypeScript", "GitHub Actions"],
+    outcome: "Reduced infrastructure costs by 72%, improved p99 latency from 800ms to 120ms, and eliminated all after-hours ops pages. The team went from monthly deploys to deploying multiple times per day.",
+  },
+  {
+    title: "Cloud Deployment Automation",
+    description: "An established business had a manual deployment process involving SSH, bash scripts, and late-night maintenance windows. Deployments were error-prone and took hours.",
+    approach: "Containerized their application, set up automated CI/CD pipelines with GitHub Actions, and deployed to AWS ECS Fargate with rolling updates. Added automated smoke tests and CloudWatch dashboards for observability.",
+    technologies: ["AWS ECS Fargate", "Docker", "GitHub Actions", "CloudWatch", "AWS CDK", "Python"],
+    outcome: "Deployment time dropped from 3+ hours to under 10 minutes with zero-downtime rollouts. Rollbacks became a single click. The team regained their evenings and weekends.",
+  },
+  {
+    title: "AI-Assisted Internal Tooling",
+    description: "A logistics company's operations team was spending 15+ hours per week manually processing shipment data across spreadsheets, emails, and a legacy ERP.",
+    approach: "Built a lightweight internal tool with a natural language interface powered by an LLM. The system ingests data from multiple sources, normalizes it, and lets the operations team query and update it conversationally.",
+    technologies: ["Python", "TypeScript", "OpenAI API", "DynamoDB", "AWS Lambda", "React"],
+    outcome: "Reduced manual data processing from 15 hours/week to 2 hours/week. Operations team adoption was immediate because the interface matched how they already thought about their work.",
+  },
+  {
+    title: "Database-Backed Business Workflow App",
+    description: "A professional services firm relied on a patchwork of spreadsheets and email to track client engagements, deliverables, and billing. Data was inconsistent and reporting was painful.",
+    approach: "Built a custom web application with a relational data model, role-based access, automated notifications, and a clean dashboard. Deployed on AWS with a serverless backend for low maintenance overhead.",
+    technologies: ["TypeScript", "React", "Node.js", "PostgreSQL", "AWS Lambda", "API Gateway", "S3"],
+    outcome: "Centralized all client engagement data into a single source of truth. Reporting that used to take a full day now happens in real time. The firm scaled 2x without adding administrative overhead.",
+  },
+];
+---
+
+<Layout
+  title="Work"
+  description="AP Dev Pro case studies — serverless architecture, cloud automation, AI tooling, and business workflow applications. Real projects, real results."
+  ogUrl="https://apcloud.pro/work"
+>
+  <section class="pb-16 pt-24 sm:pb-20 sm:pt-32">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-wider text-electric-400">Case Studies</p>
+        <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-100 sm:text-5xl text-balance">
+          Projects I've shipped
+        </h1>
+        <p class="mt-6 text-base leading-relaxed text-slate-400 text-balance">
+          Real projects, real outcomes. Each of these represents a problem solved, a system shipped, and a team that moved faster after we worked together.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 sm:pb-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-2">
+        {caseStudies.map((study, i) => (
+          <CaseStudyCard {...study} index={i} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Have a project in mind?"
+    description="Every project starts with a conversation. Tell me what you're working on and I'll let you know if I can help."
+  />
+</Layout>

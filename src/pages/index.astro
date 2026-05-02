@@ -1,0 +1,171 @@
+---
+import Layout from "../components/Layout.astro";
+import Hero from "../components/Hero.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+import CTASection from "../components/CTASection.astro";
+
+const servicesPreview = [
+  {
+    title: "AWS Serverless Architecture",
+    description: "Design and build event-driven systems using Lambda, API Gateway, DynamoDB, and S3 that scale from zero to millions of requests without managing servers.",
+    icon: "⚡",
+    technologies: ["Lambda", "API Gateway", "DynamoDB", "S3"],
+    href: "/services",
+  },
+  {
+    title: "Full-Stack Development",
+    description: "End-to-end application development with modern TypeScript, React, and Python backends — delivered as clean, maintainable, and well-tested code.",
+    icon: "🖥️",
+    technologies: ["TypeScript", "React", "Python", "Node.js"],
+    href: "/services",
+  },
+  {
+    title: "Cloud Automation & DevOps",
+    description: "CI/CD pipelines, infrastructure as code, automated testing, and deployment workflows that let your team ship faster with confidence.",
+    icon: "🔄",
+    technologies: ["CDK", "Terraform", "GitHub Actions", "Docker"],
+    href: "/services",
+  },
+];
+
+const howIHelp = [
+  {
+    step: "01",
+    title: "Understand your needs",
+    description: "We start with a focused conversation about your goals, constraints, and the problem you're solving. No jargon, no upselling — just clarity.",
+  },
+  {
+    step: "02",
+    title: "Design the right solution",
+    description: "I architect a system that fits your scale, budget, and timeline. Serverless-first when it makes sense, pragmatic always.",
+  },
+  {
+    step: "03",
+    title: "Build and deliver",
+    description: "Clean code, automated tests, clear documentation, and smooth deployments. You get working software, not a pile of tickets.",
+  },
+  {
+    step: "04",
+    title: "Transfer knowledge",
+    description: "I make sure your team understands what was built and can maintain it. Handoff includes docs, walkthroughs, and ongoing support as needed.",
+  },
+];
+
+const featuredCaseStudy = {
+  title: "Serverless Web Application Architecture",
+  description: "A growing SaaS startup needed to replace their monolithic backend with a scalable, cost-efficient serverless architecture serving 50k+ daily users.",
+  approach: "Designed a fully serverless stack using API Gateway, Lambda, DynamoDB with single-table design, and CloudFront for edge delivery. Implemented infrastructure as code with AWS CDK and automated CI/CD pipelines.",
+  technologies: ["AWS Lambda", "API Gateway", "DynamoDB", "CloudFront", "CDK", "TypeScript"],
+  outcome: "Reduced infrastructure costs by 72%, improved p99 latency from 800ms to 120ms, and eliminated all after-hours ops pages.",
+};
+---
+
+<Layout
+  title="Home"
+  description="AP Dev Pro — Modern software engineering, serverless architecture, and AI-powered automation consulting for small businesses and technical teams."
+  ogUrl="https://apcloud.pro"
+>
+  <Hero
+    headline="Modern software, serverless systems, and AI-powered automation."
+    subheadline="I help businesses build reliable cloud-native applications, automate workflows, and adopt practical AI development patterns — without the overhead of a large agency."
+  />
+
+  <!-- Services Preview -->
+  <section class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-wider text-electric-400">What I Do</p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl text-balance">
+          Focused expertise for modern teams
+        </h2>
+        <p class="mt-4 text-base text-slate-400 text-balance">
+          I specialize in the tools and patterns that let small teams move fast without cutting corners.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {servicesPreview.map((service) => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+
+      <div class="mt-10 text-center">
+        <a
+          href="/services"
+          class="inline-flex items-center gap-1.5 text-sm font-medium text-electric-400 transition-colors hover:text-electric-300"
+        >
+          View all services
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How I Help -->
+  <section class="border-y border-slate-800 bg-navy-900/20 py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-wider text-electric-400">How I Help</p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl text-balance">
+          A process that works
+        </h2>
+        <p class="mt-4 text-base text-slate-400 text-balance">
+          No endless discovery phases. No hand-offs between departments. Just direct collaboration and real results.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {howIHelp.map((item) => (
+          <div class="rounded-xl border border-slate-800 bg-navy-900 transition-all duration-200 hover:border-slate-700 hover:bg-navy-800 p-6 text-center sm:text-left">
+            <span class="text-3xl font-extrabold text-slate-800">{item.step}</span>
+            <h3 class="mt-3 text-base font-semibold text-slate-200">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Case Study -->
+  <section class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-wider text-electric-400">Featured Work</p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl text-balance">
+          Recent projects
+        </h2>
+      </div>
+
+      <div class="mt-12 max-w-3xl mx-auto">
+        <CaseStudyCard
+          title={featuredCaseStudy.title}
+          description={featuredCaseStudy.description}
+          approach={featuredCaseStudy.approach}
+          technologies={featuredCaseStudy.technologies}
+          outcome={featuredCaseStudy.outcome}
+          index={0}
+        />
+      </div>
+
+      <div class="mt-10 text-center">
+        <a
+          href="/work"
+          class="inline-flex items-center gap-1.5 text-sm font-medium text-electric-400 transition-colors hover:text-electric-300"
+        >
+          View all case studies
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Ready to build something great?"
+    description="Whether you need a new serverless backend, an AI-powered workflow, or help modernizing an existing system — let's talk."
+  />
+</Layout>

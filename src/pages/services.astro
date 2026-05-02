@@ -1,0 +1,134 @@
+---
+import Layout from "../components/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CTASection from "../components/CTASection.astro";
+
+const services = [
+  {
+    title: "AWS Serverless Architecture",
+    description: "Design and implement event-driven architectures using Lambda, API Gateway, DynamoDB, AppSync, SQS, SNS, and Step Functions. Build systems that scale automatically and cost only for what you use.",
+    icon: "⚡",
+    technologies: ["Lambda", "API Gateway", "DynamoDB", "AppSync", "Step Functions"],
+  },
+  {
+    title: "Full-Stack Application Development",
+    description: "End-to-end development of web applications and APIs using TypeScript, React, Node.js, and Python. Clean architecture, thorough testing, and production-ready deployments.",
+    icon: "🖥️",
+    technologies: ["TypeScript", "React", "Node.js", "Python", "PostgreSQL"],
+  },
+  {
+    title: "DynamoDB & Data Modeling",
+    description: "Single-table design, access pattern modeling, and performance optimization for DynamoDB. Hands-on experience with large-scale NoSQL data modeling that avoids the common pitfalls.",
+    icon: "🗄️",
+    technologies: ["DynamoDB", "Single-Table Design", "GSI/LSI"],
+  },
+  {
+    title: "API Gateway / Lambda / AppSync Consulting",
+    description: "REST and GraphQL API design, authorization patterns, request validation, caching strategies, and monitoring for API Gateway and AppSync-based services.",
+    icon: "🔗",
+    technologies: ["API Gateway", "AppSync", "GraphQL", "REST", "Cognito"],
+  },
+  {
+    title: "Cloud Automation & DevOps",
+    description: "Infrastructure as code with AWS CDK and Terraform. CI/CD pipelines with GitHub Actions. Automated testing, monitoring, and deployment workflows for reliable releases.",
+    icon: "🔄",
+    technologies: ["AWS CDK", "Terraform", "GitHub Actions", "Docker", "CloudWatch"],
+  },
+  {
+    title: "AI Agentic Workflow Design",
+    description: "Design and implement AI-assisted development workflows, intelligent automation pipelines, and agent-based systems using modern LLM tools and orchestration patterns.",
+    icon: "🤖",
+    technologies: ["LLMs", "Agentic Patterns", "RAG", "LangChain", "Python"],
+  },
+  {
+    title: "Legacy System Modernization",
+    description: "Incremental migration from .NET/SQL Server monoliths to modern serverless architectures. Strangler fig pattern, event-driven decomposition, and zero-downtime cutovers.",
+    icon: "🏗️",
+    technologies: [".NET", "SQL Server", "AWS", "Event-Driven"],
+  },
+  {
+    title: "Technical Troubleshooting & Debugging",
+    description: "Deep-dive debugging of complex distributed systems, performance profiling, cost analysis, and architectural reviews to identify and resolve issues quickly.",
+    icon: "🔍",
+    technologies: ["Distributed Systems", "Performance", "Cost Optimization"],
+  },
+];
+
+const engagementModels = [
+  {
+    icon: "🎯",
+    title: "Project-Based",
+    description: "Fixed-scope project with clear deliverables, timeline, and budget. Best for well-defined initiatives like building a new API, migrating a service, or automating a pipeline.",
+  },
+  {
+    icon: "📅",
+    title: "Retainer / Ongoing",
+    description: "Ongoing advisory and development support on a monthly retainer. Ideal for teams who need consistent cloud architecture guidance or hands-on engineering capacity without a full-time hire.",
+  },
+  {
+    icon: "🔬",
+    title: "Architecture Review",
+    description: "A focused review of your existing system — architecture, costs, performance, and security. You get a clear report with actionable recommendations, not a 50-page PDF of generic advice.",
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="AP Dev Pro services — AWS serverless architecture, full-stack development, cloud automation, AI workflow design, and more. Practical consulting for modern technical teams."
+  ogUrl="https://apcloud.pro/services"
+>
+  <section class="pb-16 pt-24 sm:pb-20 sm:pt-32">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-wider text-electric-400">Services</p>
+        <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-100 sm:text-5xl text-balance">
+          What I can do for you
+        </h1>
+        <p class="mt-6 text-base leading-relaxed text-slate-400 text-balance">
+          Focused, hands-on consulting across the modern cloud stack. I work directly with teams to design, build, and ship — no layers of account managers or junior staff filling seats.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 sm:pb-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-slate-800 bg-navy-900/20 py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-wider text-electric-400">Engagement</p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl text-balance">
+          Flexible ways to work together
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {engagementModels.map((model) => (
+          <div class="rounded-xl border border-slate-800 bg-navy-900 transition-all duration-200 hover:border-slate-700 hover:bg-navy-800 p-6">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-electric-500/10 text-lg">
+              {model.icon}
+            </div>
+            <h3 class="text-base font-semibold text-slate-200">{model.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">{model.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Let's discuss your project"
+    description="Not sure what you need? Reach out anyway. I'm happy to have a conversation and help you figure out the right approach."
+    ctaLabel="Get in Touch"
+    ctaHref="/contact"
+  />
+</Layout>

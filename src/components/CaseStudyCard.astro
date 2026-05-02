@@ -1,0 +1,50 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  approach: string;
+  technologies: string[];
+  outcome: string;
+  index: number;
+}
+
+const { title, description, approach, technologies, outcome, index } = Astro.props;
+---
+
+<div class="rounded-xl border border-slate-800 bg-navy-900 transition-all duration-200 hover:border-slate-700 hover:bg-navy-800 group overflow-hidden">
+  <div class="p-6">
+    <div class="mb-4 flex items-center gap-3">
+      <span class="flex h-7 w-7 items-center justify-center rounded-md bg-electric-500/10 text-xs font-bold text-electric-400">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <h3 class="text-base font-semibold text-slate-200">
+        {title}
+      </h3>
+    </div>
+
+    <p class="text-sm leading-relaxed text-slate-400">
+      <span class="font-medium text-slate-300">Problem: </span>
+      {description}
+    </p>
+
+    <p class="mt-3 text-sm leading-relaxed text-slate-400">
+      <span class="font-medium text-slate-300">Approach: </span>
+      {approach}
+    </p>
+
+    <div class="mt-4 rounded-lg border border-emerald-500/10 bg-emerald-500/5 px-4 py-3">
+      <p class="text-sm leading-relaxed text-slate-300">
+        <span class="font-medium text-emerald-400">Outcome: </span>
+        {outcome}
+      </p>
+    </div>
+
+    <div class="mt-4 flex flex-wrap gap-1.5">
+      {technologies.map((tech) => (
+        <span class="rounded-md bg-slate-800 px-2.5 py-1 text-xs text-slate-400">
+          {tech}
+        </span>
+      ))}
+    </div>
+  </div>
+</div>
